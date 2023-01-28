@@ -4,8 +4,9 @@ import { deleteSky, getIdSky, getSky } from "../redux/actions/actionTodoList";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { ModalAdd, ModalDelete } from "../components/modal";
+// import InfiniteScroll from "react-infinite-scroll-component";
 
-function Home() {
+function Activity() {
     const {
         getListSkyResult,
         getListSkyLoading,
@@ -36,6 +37,14 @@ function Home() {
         }
     }, [deleteSkyResult, dispatch]);
 
+    // const [dataSource, setDataSource] = useState([]);
+    // useEffect(() => {
+    //     setDataSource(getListSkyResult.data);
+    // }, [getListSkyResult]);
+    // const fetchData = async() => {
+    // };
+    // console.log("masuk?", dataSource);
+
     return (
         <>
             <div className="container my-5">
@@ -50,6 +59,23 @@ function Home() {
                     >
                         <button className="btn btn-primary">Tambah</button>
                     </div>
+                </div>
+                {/* <InfiniteScroll
+                    dataLength={dataSource?.length} //This is important field to render the next data
+                    hasMore={true}
+                    next={fetchData}
+                    loader={<h4>Loading...</h4>}
+                >
+                    {dataSource?.map((i, index) => {
+                        return (
+                            <div className="card" key={index}>
+                                <p>{i.title}</p>
+                            </div>
+                        );
+                    })}
+                </InfiniteScroll> */}
+                <div className="my-5">
+                    <hr />
                 </div>
                 <div className="content">
                     <div className="row">
@@ -149,4 +175,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Activity;

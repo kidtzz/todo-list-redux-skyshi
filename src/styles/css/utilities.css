@@ -64,4 +64,8 @@
   -moz-transform: translate(0px) !important;
   -ms-transform: translate(0px) !important;
   -o-transform: translate(0px) !important;
+}
+
+.card-title {
+  cursor: pointer;
 }/*# sourceMappingURL=utilities.css.map */

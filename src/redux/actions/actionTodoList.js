@@ -10,7 +10,7 @@ const apiActivity = "https://todo.api.devcode.gethired.id/activity-groups/";
 //create,detail,update,delete
 const apiTodo = "https://todo.api.devcode.gethired.id/todo-items/";
 
-export const GET_LIST_SKY = "GET_LIST_SKY";
+export const GET_LIST_SKY = "GET_LIST_SKY"; 
 export const GET_ID_SKY = "GET_ID_SKY";
 export const ADD_TODO_SKY = "ADD_TODO_SKY";
 export const DELETE_SKY = "DELETE_SKY";

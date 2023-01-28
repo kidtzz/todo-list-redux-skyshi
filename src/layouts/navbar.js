@@ -30,8 +30,8 @@ function Navbar() {
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/#">
-                                Features
+                            <a className="nav-link" href="/Infinite">
+                                Infinite
                             </a>
                         </li>
                         <li className="nav-item">
