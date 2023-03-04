@@ -27,7 +27,7 @@ const InfiniteP = () => {
                 setTimeout(() => {
                     setPage((prev) => prev + 1);
                 }, 500);
-                setLoading(<h5>Loading..........</h5>);
+                setLoading(<h5>Loading......</h5>);
             }
         } catch (error) {
             console.log(error);
