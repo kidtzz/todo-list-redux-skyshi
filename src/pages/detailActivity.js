@@ -114,7 +114,7 @@ function DetailActivity() {
 
     return (
         <>
-            <div className="container my-5">
+            <div className="container detail-activity">
                 <div className="d-flex justify-content-between">
                     <div className="header-left d-flex">
                         <div className="btn-back align-items-center mx-1">
@@ -122,7 +122,7 @@ function DetailActivity() {
                         </div>
 
                         <div className="title-activity">
-                            <h2>{tit}</h2>
+                            <h4>{tit}</h4>
                         </div>
 
                         <div className="btn-edit mx-2">
@@ -133,7 +133,7 @@ function DetailActivity() {
                         <div className="short-icon">
                             <div className="dropdown">
                                 <div
-                                    className="btn btn-primary  bg-none px-3 "
+                                    className="btn btn-success  bg-none px-3 "
                                     data-bs-toggle="dropdown"
                                 >
                                     <BiSortAlt2 />
@@ -199,7 +199,7 @@ function DetailActivity() {
                             data-bs-toggle="modal"
                             data-bs-target="#ModalAddTodo"
                         >
-                            <button className="btn btn-primary mx-2">
+                            <button className="btn btn-success mx-2">
                                 <AiOutlinePlus className="mx-2" />
                                 Tambah
                             </button>

@@ -35,29 +35,29 @@ function Activity() {
         }
     }, [deleteSkyResult, dispatch]);
 
-    const [loading, setLoading] = useState();
-    const [brp, setBrp] = useState(5);
+    // const [loading, setLoading] = useState();
+    // const [brp, setBrp] = useState(5);
 
-    function handelInfiniteScroll() {
-        if (
-            window.innerHeight + document.documentElement.scrollTop + 1 >=
-            document.documentElement.scrollHeight
-        ) {
-            setTimeout(() => {
-                setBrp(10);
-            }, 500);
-            setLoading(<h5>Loading......</h5>);
-        }
-    }
+    // function handelInfiniteScroll() {
+    //     if (
+    //         window.innerHeight + document.documentElement.scrollTop + 1 >=
+    //         document.documentElement.scrollHeight
+    //     ) {
+    //         setTimeout(() => {
+    //             setBrp(10);
+    //         }, 500);
+    //         setLoading(<h5>Loading......</h5>);
+    //     }
+    // }
 
-    useEffect(() => {
-        window.addEventListener("scroll", handelInfiniteScroll);
-        return () => window.removeEventListener("scroll", handelInfiniteScroll);
-    }, []);
+    // useEffect(() => {
+    //     window.addEventListener("scroll", handelInfiniteScroll);
+    //     return () => window.removeEventListener("scroll", handelInfiniteScroll);
+    // }, []);
 
     return (
         <>
-            <div className="container my-5">
+            <div className="container ">
                 <div className="d-flex justify-content-between">
                     <div className="title">
                         <h2>Activity</h2>
@@ -67,18 +67,15 @@ function Activity() {
                         data-bs-toggle="modal"
                         data-bs-target="#ModalAdd"
                     >
-                        <button className="btn btn-primary">Tambah</button>
+                        <button className="btn btn-success">Tambah</button>
                     </div>
                 </div>
 
-                <div className="my-5">
-                    <hr />
-                </div>
-                <div className="content">
+                <div className="content my-3">
                     <div className="row">
                         {getListSkyResult ? (
                             getListSkyResult.data
-                                .slice(0, brp)
+                                .slice(0, 2)
                                 .map((item, index) => {
                                     const dateG = item.created_at;
                                     const myDate = new Date(dateG);
@@ -109,13 +106,10 @@ function Activity() {
                                         year;
                                     return (
                                         <div
-                                            className="col-12 mb-4"
+                                            className="activity-card col-12 mb-4"
                                             key={index}
                                         >
-                                            <div
-                                                className="card"
-                                                sx={{ width: "18rem" }}
-                                            >
+                                            <div className="card">
                                                 <div className="card-body">
                                                     <h5
                                                         className="card-title"
@@ -126,7 +120,7 @@ function Activity() {
                                                         {item.title}
                                                     </h5>
                                                 </div>
-                                                <div className="card-body justify-content-between d-flex">
+                                                <div className="card-body text-secondary fst-italic justify-content-between d-flex">
                                                     <div>
                                                         <h6 className="card-title">
                                                             {resultDate}
@@ -161,7 +155,7 @@ function Activity() {
                                     : "data Kosong bg..."}
                             </p>
                         )}
-                        {loading}
+                        {/* {loading} */}
                     </div>
                 </div>
             </div>

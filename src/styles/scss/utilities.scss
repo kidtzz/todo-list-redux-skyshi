@@ -1,3 +1,42 @@
+body {
+    background: #616161; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to right,
+        #616161,
+        #9bc5c3
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #616161, #9bc5c3);
+}
+.mobile-only {
+    background-color: white;
+    box-shadow: 0 5px 35px rgb(0 0 0 / 7%);
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    .top-navbar {
+        border-radius: 1rem;
+        -webkit-border-radius: 1rem;
+        -moz-border-radius: 1rem;
+        -ms-border-radius: 1rem;
+        -o-border-radius: 1rem;
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    }
+}
+.detail-activity {
+    margin: 1rem 1rem;
+}
+.activity-card {
+    box-shadow: 0 5px 35px rgb(0 0 0 / 7%);
+    .card {
+        border: none;
+    }
+}
+
 .footer {
     background-color: rgb(199, 199, 199);
     color: black;

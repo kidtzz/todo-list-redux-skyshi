@@ -139,7 +139,7 @@ export function ModalAdd({ exampleModal, modalTitle }) {
                             </button>
                             <button
                                 type="submit"
-                                className="btn btn-primary"
+                                className="btn btn-success"
                                 data-bs-dismiss="modal"
                                 onClick={handleSubmit}
                             >

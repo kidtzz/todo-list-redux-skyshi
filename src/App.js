@@ -15,8 +15,8 @@ function App() {
             <BrowserRouter>
                 <ToastContainer />
                 <div className="container">
-                    <div className="row justify-content-center">
-                        <div className="col-lg-4 col-md-4 col-sm-4 border mobile-only">
+                    <div className="row justify-content-center mx-2">
+                        <div className="col-lg-6 col-md-12 col-sm-12 m-5 mobile-only">
                             <Navbar />
                             <Routes>
                                 <Route path="/" element={<Activity />} />

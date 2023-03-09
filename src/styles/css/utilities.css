@@ -1,3 +1,43 @@
+body {
+  background: #616161; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#616161), to(#9bc5c3));
+  background: linear-gradient(to right, #616161, #9bc5c3);
+}
+
+.mobile-only {
+  background-color: white;
+  -webkit-box-shadow: 0 5px 35px rgba(0, 0, 0, 0.07);
+          box-shadow: 0 5px 35px rgba(0, 0, 0, 0.07);
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+.mobile-only .top-navbar {
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+.mobile-only .top-navbar a {
+  text-decoration: none;
+  color: white;
+}
+
+.detail-activity {
+  margin: 1rem 1rem;
+}
+
+.activity-card {
+  -webkit-box-shadow: 0 5px 35px rgba(0, 0, 0, 0.07);
+          box-shadow: 0 5px 35px rgba(0, 0, 0, 0.07);
+}
+.activity-card .card {
+  border: none;
+}
+
 .footer {
   background-color: rgb(199, 199, 199);
   color: black;
