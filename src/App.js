@@ -14,13 +14,25 @@ function App() {
         <>
             <BrowserRouter>
                 <ToastContainer />
-                <Navbar />
-                <Routes>
-                    <Route path="/" element={<Activity />} />
-                    <Route path="/DetailSky/:id" element={<DetailActivity />} />
-                    <Route path="/Infinite" element={<InfiniteP />} />
-                </Routes>
-                <Footer />
+                <div className="container">
+                    <div className="row justify-content-center">
+                        <div className="col-lg-4 col-md-4 col-sm-4 border mobile-only">
+                            <Navbar />
+                            <Routes>
+                                <Route path="/" element={<Activity />} />
+                                <Route
+                                    path="/DetailSky/:id"
+                                    element={<DetailActivity />}
+                                />
+                                <Route
+                                    path="/Infinite"
+                                    element={<InfiniteP />}
+                                />
+                            </Routes>
+                            <Footer />
+                        </div>
+                    </div>
+                </div>
             </BrowserRouter>
         </>
     );

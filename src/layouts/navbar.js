@@ -4,10 +4,10 @@ function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg bg-light">
             <div className="container">
-                <a className="navbar-brand" href="/#">
-                    @kidtz
+                <a className="navbar-brand " href="/#">
+                    <h2>Arh-Kidtz</h2>
                 </a>
-                <button
+                {/* <button
                     className="navbar-toggler"
                     type="button"
                     data-bs-toggle="collapse"
@@ -40,7 +40,7 @@ function Navbar() {
                             </a>
                         </li>
                     </ul>
-                </div>
+                </div> */}
             </div>
         </nav>
     );

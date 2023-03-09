@@ -111,9 +111,6 @@ function DetailActivity() {
             setItal("");
         }
     };
-    // console.log("ini ital?", tangkap);
-    // console.log("apa ni?", tod);
-    //harus namabahi true false.nya ini sih di is_active
 
     return (
         <>

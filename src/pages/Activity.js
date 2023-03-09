@@ -4,7 +4,6 @@ import { deleteSky, getIdSky, getSky } from "../redux/actions/actionTodoList";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { ModalAdd, ModalDelete } from "../components/modal";
-// import InfiniteScroll from "react-infinite-scroll-component";
 
 function Activity() {
     const {
@@ -26,7 +25,6 @@ function Activity() {
     };
 
     const [idDel, setIDDelete] = useState();
-
     const handleDetele = () => {
         dispatch(deleteSky(idDel.id));
     };
@@ -37,13 +35,25 @@ function Activity() {
         }
     }, [deleteSkyResult, dispatch]);
 
-    // const [dataSource, setDataSource] = useState([]);
-    // useEffect(() => {
-    //     setDataSource(getListSkyResult.data);
-    // }, [getListSkyResult]);
-    // const fetchData = async() => {
-    // };
-    // console.log("masuk?", dataSource);
+    const [loading, setLoading] = useState();
+    const [brp, setBrp] = useState(5);
+
+    function handelInfiniteScroll() {
+        if (
+            window.innerHeight + document.documentElement.scrollTop + 1 >=
+            document.documentElement.scrollHeight
+        ) {
+            setTimeout(() => {
+                setBrp(10);
+            }, 500);
+            setLoading(<h5>Loading......</h5>);
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener("scroll", handelInfiniteScroll);
+        return () => window.removeEventListener("scroll", handelInfiniteScroll);
+    }, []);
 
     return (
         <>
@@ -60,94 +70,88 @@ function Activity() {
                         <button className="btn btn-primary">Tambah</button>
                     </div>
                 </div>
-                {/* <InfiniteScroll
-                    dataLength={dataSource?.length} //This is important field to render the next data
-                    hasMore={true}
-                    next={fetchData}
-                    loader={<h4>Loading...</h4>}
-                >
-                    {dataSource?.map((i, index) => {
-                        return (
-                            <div className="card" key={index}>
-                                <p>{i.title}</p>
-                            </div>
-                        );
-                    })}
-                </InfiniteScroll> */}
+
                 <div className="my-5">
                     <hr />
                 </div>
                 <div className="content">
                     <div className="row">
                         {getListSkyResult ? (
-                            getListSkyResult.data.map((item, index) => {
-                                const dateG = item.created_at;
-                                const myDate = new Date(dateG);
-                                const day = myDate.getDate();
+                            getListSkyResult.data
+                                .slice(0, brp)
+                                .map((item, index) => {
+                                    const dateG = item.created_at;
+                                    const myDate = new Date(dateG);
+                                    const day = myDate.getDate();
 
-                                const month = myDate.getMonth();
-                                const year = myDate.getFullYear();
-                                const monthNames = [
-                                    "Januari",
-                                    "Febuari",
-                                    "Maret",
-                                    "April",
-                                    "Mei",
-                                    "Juni",
-                                    "Juli",
-                                    "Agustus",
-                                    "September",
-                                    "Oktober",
-                                    "November",
-                                    "Desember",
-                                ];
+                                    const month = myDate.getMonth();
+                                    const year = myDate.getFullYear();
+                                    const monthNames = [
+                                        "Januari",
+                                        "Febuari",
+                                        "Maret",
+                                        "April",
+                                        "Mei",
+                                        "Juni",
+                                        "Juli",
+                                        "Agustus",
+                                        "September",
+                                        "Oktober",
+                                        "November",
+                                        "Desember",
+                                    ];
 
-                                const resultDate =
-                                    ("0" + day).slice(-2) +
-                                    " " +
-                                    monthNames[month] +
-                                    " " +
-                                    year;
-                                return (
-                                    <div className="col-lg-3 mb-4" key={index}>
+                                    const resultDate =
+                                        ("0" + day).slice(-2) +
+                                        " " +
+                                        monthNames[month] +
+                                        " " +
+                                        year;
+                                    return (
                                         <div
-                                            className="card"
-                                            sx={{ width: "18rem" }}
+                                            className="col-12 mb-4"
+                                            key={index}
                                         >
-                                            <div className="card-body">
-                                                <h5
-                                                    className="card-title"
-                                                    onClick={() =>
-                                                        DetailSky(item)
-                                                    }
-                                                >
-                                                    {item.title}
-                                                </h5>
-                                            </div>
-                                            <div className="card-body justify-content-between d-flex">
-                                                <div>
-                                                    <h6 className="card-title">
-                                                        {resultDate}
-                                                    </h6>
-                                                </div>
-
-                                                <div className="icon-button mx-1">
-                                                    <i
-                                                        className="cur-pointer "
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#exampleModal"
+                                            <div
+                                                className="card"
+                                                sx={{ width: "18rem" }}
+                                            >
+                                                <div className="card-body">
+                                                    <h5
+                                                        className="card-title"
                                                         onClick={() =>
-                                                            setIDDelete(item)
+                                                            DetailSky(item)
                                                         }
                                                     >
-                                                        <FaRegTrashAlt />
-                                                    </i>
+                                                        {item.title}
+                                                    </h5>
+                                                </div>
+                                                <div className="card-body justify-content-between d-flex">
+                                                    <div>
+                                                        <h6 className="card-title">
+                                                            {resultDate}
+                                                        </h6>
+                                                    </div>
+
+                                                    <div className="icon-button mx-1">
+                                                        <i
+                                                            className="cur-pointer "
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModal"
+                                                            onClick={() =>
+                                                                setIDDelete(
+                                                                    item
+                                                                )
+                                                            }
+                                                        >
+                                                            <FaRegTrashAlt />
+                                                        </i>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                );
-                            })
+                                    );
+                                })
                         ) : getListSkyLoading ? (
                             <p>loading...</p>
                         ) : (
@@ -157,6 +161,7 @@ function Activity() {
                                     : "data Kosong bg..."}
                             </p>
                         )}
+                        {loading}
                     </div>
                 </div>
             </div>
